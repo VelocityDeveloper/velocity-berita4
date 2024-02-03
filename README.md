@@ -1,4 +1,4 @@
-Velocity Child Theme
+Velocity Child Berita 4
 =================
 
 Child Theme for the Velocity System WordPress theme.
