@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 get_header();
-$container  = velocitytheme_option('justg_container_type', 'container');
+$container  = velocitychild_theme_option('justg_container_type', 'container');
 $full_url   = get_the_post_thumbnail_url(get_the_ID(), 'full');
 $format     = get_post_format() ?: 'standard';
 ?>
@@ -20,7 +20,7 @@ $format     = get_post_format() ?: 'standard';
     <div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
 
         <div class="breadcrumbs-wrap pt-2 px-3 mb-3">
-            <?php echo justg_breadcrumb(); ?>
+            <?php echo velocitychild_breadcrumb(); ?>
         </div>
 
         <div class="row">
@@ -34,18 +34,18 @@ $format     = get_post_format() ?: 'standard';
                     <div class="justify-content-between align-items-center py-1 px-2 text-muted bg-light mb-3">
                         <div>
                             <small>
-                                <i class="fa fa-user-o"></i> <?php echo get_the_author_posts_link(); ?>
+                                <?php echo velocitychild_svg_icon('person', 'me-1'); ?> <?php echo get_the_author_posts_link(); ?>
                             </small>
                             <small class="ms-2">
-                                <i class="fa fa-calendar-o"></i> <?php echo get_the_date(); ?>
+                                <?php echo velocitychild_svg_icon('calendar', 'me-1'); ?> <?php echo get_the_date(); ?>
                             </small>
                             <?php $getterms = wp_get_post_terms(get_the_ID(), 'category');; ?>
                             <?php if ($getterms) : ?>
                                 <small class="ms-2">
-                                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                    <?php echo velocitychild_svg_icon('list', 'me-1'); ?>
                                     <?php foreach ($getterms as $index => $term) : ?>
                                         <?php echo $index === 0 ? '' : ','; ?>
-                                        <a href="<?php echo get_tag_link($term->term_id); ?>"> <?php echo $term->name; ?> </a>
+                                        <a href="<?php echo esc_url(get_category_link($term->term_id)); ?>"> <?php echo esc_html($term->name); ?> </a>
                                         <?php if ($index > 1) {
                                             break;
                                         } ?>
@@ -80,7 +80,7 @@ $format     = get_post_format() ?: 'standard';
                             <div class="p-2">
                                 <?php foreach ($gettags as $index => $tag) : ?>
                                     <?php echo $index === 0 ? '' : ' '; ?>
-                                    <a class="bg-theme py-1 px-2 mx-1 text-white" href="<?php echo get_tag_link($tag->term_id); ?>"> <?php echo $tag->name; ?> </a>
+                                    <a class="bg-theme py-1 px-2 mx-1 text-white" href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"> <?php echo esc_html($tag->name); ?> </a>
                                     <?php if ($index > 1) {
                                         break;
                                     } ?>
@@ -100,7 +100,7 @@ $format     = get_post_format() ?: 'standard';
                     </div>
                     <div class="single-post-nav bg-muted d-md-flex justify-content-between p-2 my-3">
                         <div class="share-post">
-                            <?php echo justg_share(); ?>
+                            <?php echo velocitychild_share(); ?>
                         </div>
                         <div class="nav-post">
                             <div class="btn-group" role="group" aria-label="Navigation Post">

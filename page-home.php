@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * Template Name: Home Page
  * The main template file
  *
  * This is the most generic template file in a WordPress theme
@@ -17,7 +18,7 @@ defined('ABSPATH') || exit;
 
 get_header();
 
-$container = velocitytheme_option('justg_container_type', 'container');
+$container = velocitychild_theme_option('justg_container_type', 'container');
 ?>
 
 <div class="wrapper" id="index-wrapper">
@@ -44,21 +45,12 @@ $container = velocitytheme_option('justg_container_type', 'container');
                         $posts_query->the_post();
                 ?>
                         <div class="slideshow-post-item carousel-item  <?php echo ($nm == 1 ? 'active' : ''); ?>">
-                            <a class="d-block position-relative" href="<?php echo get_the_permalink(); ?>">
-
-                                <div class="ratio ratio-21x9 bg-light overflow-hidden">
-                                    <?php
-                                    if (has_post_thumbnail()) {
-                                        $img_atr = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
-                                        echo '<img class="w-100" src="' . $img_atr[0] . '" alt="' . get_the_title() . '" loading="lazy">';
-                                    } else {
-                                        echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="background-color: #ececec;width: 100%;height: auto;enable-background:new 0 0 60 60;" xml:space="preserve" width="' . $width . '" height="' . $height . '"><g><g><path d="M55.201,15.5h-8.524l-4-10H17.323l-4,10H12v-5H6v5H4.799C2.152,15.5,0,17.652,0,20.299v29.368   C0,52.332,2.168,54.5,4.833,54.5h50.334c2.665,0,4.833-2.168,4.833-4.833V20.299C60,17.652,57.848,15.5,55.201,15.5z M8,12.5h2v3H8   V12.5z M58,49.667c0,1.563-1.271,2.833-2.833,2.833H4.833C3.271,52.5,2,51.229,2,49.667V20.299C2,18.756,3.256,17.5,4.799,17.5H6h6   h2.677l4-10h22.646l4,10h9.878c1.543,0,2.799,1.256,2.799,2.799V49.667z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/><path d="M30,14.5c-9.925,0-18,8.075-18,18s8.075,18,18,18s18-8.075,18-18S39.925,14.5,30,14.5z M30,48.5c-8.822,0-16-7.178-16-16   s7.178-16,16-16s16,7.178,16,16S38.822,48.5,30,48.5z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/><path d="M30,20.5c-6.617,0-12,5.383-12,12s5.383,12,12,12s12-5.383,12-12S36.617,20.5,30,20.5z M30,42.5c-5.514,0-10-4.486-10-10   s4.486-10,10-10s10,4.486,10,10S35.514,42.5,30,42.5z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/><path d="M52,19.5c-2.206,0-4,1.794-4,4s1.794,4,4,4s4-1.794,4-4S54.206,19.5,52,19.5z M52,25.5c-1.103,0-2-0.897-2-2s0.897-2,2-2   s2,0.897,2,2S53.103,25.5,52,25.5z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/></g></g> </svg>';
-                                    } ?>
-                                </div>
+                            <a class="d-block position-relative" href="<?php echo esc_url(get_the_permalink()); ?>">
+                                <?php echo velocitychild_get_thumbnail_markup(get_the_ID(), 21, 9, 'w-100', false); ?>
 
                                 <div class="carousel-caption text-md-start text-center">
                                     <span class="bg-dark d-inline-block p-2" style="--bs-bg-opacity: 0.90;">
-                                        <?php echo get_the_title(); ?>
+                                        <?php echo esc_html(get_the_title()); ?>
                                     </span>
                                 </div>
 
@@ -97,8 +89,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
                     <div class="part_posts_home">
                         <h6 class="widget-title d-flex p-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                             <?php
-                            if (velocitytheme_option('home_post_1')) :
-                                $category = get_category(velocitytheme_option('home_post_1'));
+                            if (velocitychild_theme_option('home_post_1')) :
+                                $category = get_category(velocitychild_theme_option('home_post_1'));
                                 $category_title = $category->name;
                                 $category_link = get_category_link($category->term_id);
                             else :
@@ -106,8 +98,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                 $category_link = '#';
                             endif;
                             ?>
-                            <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
-                            <span><a class="text-white ikon-home" href="<?php echo $category_link; ?>"><i class="fa fa-rss"></i></a></span>
+                            <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                            <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                         </h6>
 
                         <div class="part-post-home-2 py-2">
@@ -116,7 +108,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                     <?php
                                     $post2_args = array(
                                         'post_type' => 'post',
-                                        'cat'       => velocitytheme_option('home_post_1'),
+                                        'cat'       => velocitychild_theme_option('home_post_1'),
                                         'posts_per_page' => 1,
                                     );
                                     $query1 = new WP_Query($post2_args);
@@ -141,7 +133,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                     <?php
                                     $args2 = array(
                                         'post_type' => 'post',
-                                        'cat'       => velocitytheme_option('home_post_1'),
+                                        'cat'       => velocitychild_theme_option('home_post_1'),
                                         'posts_per_page' => 4,
                                         'offset' => 1,
                                     );
@@ -172,8 +164,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
 
                         <h6 class="widget-title d-flex p-2 mt-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                             <?php
-                            if (velocitytheme_option('home_post_2')) :
-                                $category = get_category(velocitytheme_option('home_post_2'));
+                            if (velocitychild_theme_option('home_post_2')) :
+                                $category = get_category(velocitychild_theme_option('home_post_2'));
                                 $category_title = $category->name;
                                 $category_link = get_category_link($category->term_id);
                             else :
@@ -181,8 +173,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                 $category_link = '#';
                             endif;
                             ?>
-                            <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
-                            <span><a class="text-white ikon-home" href="<?php echo $category_link; ?>"><i class="fa fa-rss"></i></a></span>
+                            <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                            <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                         </h6>
                         <div class="part-post-home-3 py-2">
                             <div class="row m-0">
@@ -190,7 +182,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                     <?php
                                     $post2_args = array(
                                         'post_type' => 'post',
-                                        'cat'       => velocitytheme_option('home_post_2'),
+                                        'cat'       => velocitychild_theme_option('home_post_2'),
                                         'posts_per_page' => 1,
                                     );
                                     $query1 = new WP_Query($post2_args);
@@ -215,7 +207,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                     <?php
                                     $args2 = array(
                                         'post_type' => 'post',
-                                        'cat'       => velocitytheme_option('home_post_2'),
+                                        'cat'       => velocitychild_theme_option('home_post_2'),
                                         'posts_per_page' => 4,
                                         'offset' => 1,
                                     );
@@ -226,8 +218,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
 
                         <h6 class="widget-title d-flex p-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                             <?php
-                            if (velocitytheme_option('home_post_3')) :
-                                $category = get_category(velocitytheme_option('home_post_3'));
+                            if (velocitychild_theme_option('home_post_3')) :
+                                $category = get_category(velocitychild_theme_option('home_post_3'));
                                 $category_title = $category->name;
                                 $category_link = get_category_link($category->term_id);
                             else :
@@ -235,8 +227,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                 $category_link = '#';
                             endif;
                             ?>
-                            <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
-                            <span><a class="text-white ikon-home" href="<?php echo $category_link; ?>"><i class="fa fa-rss"></i></a></span>
+                            <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                            <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                         </h6>
                         <div class="part-post-home-4 py-2">
                             <div class="row m-0">
@@ -244,7 +236,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                     <?php
                                     $post2_args = array(
                                         'post_type' => 'post',
-                                        'cat'       => velocitytheme_option('home_post_3'),
+                                        'cat'       => velocitychild_theme_option('home_post_3'),
                                         'posts_per_page' => 1,
                                     );
                                     $query1 = new WP_Query($post2_args);
@@ -269,7 +261,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                     <?php
                                     $args3 = array(
                                         'post_type' => 'post',
-                                        'cat'       => velocitytheme_option('home_post_3'),
+                                        'cat'       => velocitychild_theme_option('home_post_3'),
                                         'posts_per_page' => 4,
                                         'offset' => 1,
                                     );
@@ -283,8 +275,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
                             <div class="col-md-6 p-0 pe-md-2">
                                 <h6 class="widget-title d-flex p-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                                     <?php
-                                    if (velocitytheme_option('home_post_4')) :
-                                        $category = get_category(velocitytheme_option('home_post_4'));
+                                    if (velocitychild_theme_option('home_post_4')) :
+                                        $category = get_category(velocitychild_theme_option('home_post_4'));
                                         $category_title = $category->name;
                                         $category_link = get_category_link($category->term_id);
                                     else :
@@ -292,13 +284,13 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                         $category_link = '#';
                                     endif;
                                     ?>
-                                    <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
-                                    <span><a class="text-white ikon-home" href="<?php echo $category_link; ?>"><i class="fa fa-rss"></i></a></span>
+                                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                                    <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                                 </h6>
                                 <?php
                                 $args4 = array(
                                     'post_type' => 'post',
-                                    'cat'       => velocitytheme_option('home_post_4'),
+                                    'cat'       => velocitychild_theme_option('home_post_4'),
                                     'posts_per_page' => 6,
                                 );
                                 echo module_vdposts($args4, 'gallery-flip', 'row m-0'); ?>
@@ -306,8 +298,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
                             <div class="col-md-6 p-0 ps-md-2">
                                 <h6 class="widget-title d-flex p-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                                     <?php
-                                    if (velocitytheme_option('home_post_5')) :
-                                        $category = get_category(velocitytheme_option('home_post_5'));
+                                    if (velocitychild_theme_option('home_post_5')) :
+                                        $category = get_category(velocitychild_theme_option('home_post_5'));
                                         $category_title = $category->name;
                                         $category_link = get_category_link($category->term_id);
                                     else :
@@ -315,13 +307,13 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                         $category_link = '#';
                                     endif;
                                     ?>
-                                    <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
-                                    <span><a class="text-white ikon-home" href="<?php echo $category_link; ?>"><i class="fa fa-rss"></i></a></span>
+                                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                                    <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                                 </h6>
                                 <?php
                                 $args5 = array(
                                     'post_type' => 'post',
-                                    'cat'       => velocitytheme_option('home_post_5'),
+                                    'cat'       => velocitychild_theme_option('home_post_5'),
                                     'posts_per_page' => 4,
                                 );
                                 echo module_vdposts($args5, 'listpost'); ?>
@@ -348,8 +340,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
             <div class="col-md-4 px-1">
                 <h6 class="widget-title d-flex p-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                     <?php
-                    if (velocitytheme_option('home_post_6')) :
-                        $category = get_category(velocitytheme_option('home_post_6'));
+                    if (velocitychild_theme_option('home_post_6')) :
+                        $category = get_category(velocitychild_theme_option('home_post_6'));
                         $category_title = $category->name;
                         $category_link = get_category_link($category->term_id);
                     else :
@@ -363,7 +355,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                 <?php
                 $args6 = array(
                     'post_type' => 'post',
-                    'cat'       => velocitytheme_option('home_post_6'),
+                    'cat'       => velocitychild_theme_option('home_post_6'),
                     'posts_per_page' => 4,
                 );
                 echo module_vdposts($args6, 'sliderpost', 'slick-post'); ?>
@@ -372,8 +364,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
             <div class="col-md-4 px-1">
                 <h6 class="widget-title d-flex p-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                     <?php
-                    if (velocitytheme_option('home_post_7')) :
-                        $category = get_category(velocitytheme_option('home_post_7'));
+                    if (velocitychild_theme_option('home_post_7')) :
+                        $category = get_category(velocitychild_theme_option('home_post_7'));
                         $category_title = $category->name;
                         $category_link = get_category_link($category->term_id);
                     else :
@@ -381,13 +373,13 @@ $container = velocitytheme_option('justg_container_type', 'container');
                         $category_link = '#';
                     endif;
                     ?>
-                    <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
-                    <span><a class="text-white ikon-home" href="<?php echo $category_link; ?>"><i class="fa fa-rss"></i></a></span>
+                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                    <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                 </h6>
                 <?php
                 $args7 = array(
                     'post_type' => 'post',
-                    'cat'       => velocitytheme_option('home_post_7'),
+                    'cat'       => velocitychild_theme_option('home_post_7'),
                     'posts_per_page' => 4,
                 );
                 echo module_vdposts($args7, 'listpost'); ?>
@@ -395,8 +387,8 @@ $container = velocitytheme_option('justg_container_type', 'container');
             <div class="col-md-4 px-1">
                 <h6 class="widget-title d-flex p-2 fw-bold text-uppercase bg-theme rounded-0 align-items-center justify-content-between">
                     <?php
-                    if (velocitytheme_option('home_post_8')) :
-                        $category = get_category(velocitytheme_option('home_post_8'));
+                    if (velocitychild_theme_option('home_post_8')) :
+                        $category = get_category(velocitychild_theme_option('home_post_8'));
                         $category_title = $category->name;
                         $category_link = get_category_link($category->term_id);
                     else :
@@ -404,13 +396,13 @@ $container = velocitytheme_option('justg_container_type', 'container');
                         $category_link = '#';
                     endif;
                     ?>
-                    <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
-                    <span><a class="text-white ikon-home" href="<?php echo $category_link; ?>"><i class="fa fa-rss"></i></a></span>
+                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                    <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                 </h6>
                 <?php
                 $args8 = array(
                     'post_type' => 'post',
-                    'cat'       => velocitytheme_option('home_post_8'),
+                    'cat'       => velocitychild_theme_option('home_post_8'),
                     'posts_per_page' => 6,
                 );
                 echo module_vdposts($args8, 'gallery-flip', 'row m-0'); ?>

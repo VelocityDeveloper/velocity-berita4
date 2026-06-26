@@ -1,11 +1,33 @@
 Velocity Child Berita 4
-=================
+=======================
 
-Child Theme for the Velocity System WordPress theme.
+Child theme untuk WordPress parent theme Velocity System.
 
-### Usage
-Simply download the zip and upload the zip (velocity-child-theme-master.zip) under your WordPress dashboard at Appearance > Themes. Or extract and upload via FTP at wp-content/themes/.
+Versi: 2.0.0
 
+Perubahan Pada Versi 2.0.0
+--------------------------
 
-### Renaming
-You can of course rename the zip file so it isn't called velocity-child-master.zip (you should do this so it makes more sense) and also change the "Theme Name" at the top of the style.css file.
+- Menghapus ketergantungan Customizer child theme pada plugin Kirki.
+- Mengganti ikon Font Awesome dengan ikon SVG Bootstrap 5.
+- Menghapus field warna tema/background dari Customizer child theme dan memakai warna dari parent theme.
+- Memperbarui output thumbnail agar memakai Bootstrap 5 `ratio` dengan fallback `no-image.webp`.
+- Menghapus helper resize thumbnail lama dan penggunaan shortcode resize thumbnail.
+- Mempertahankan shortcode `velocity-popular-posts` yang sudah ada sebelumnya.
+- Menghapus logic hit counter dari child theme karena sudah disediakan oleh plugin Velocity Addons.
+- Memperbarui class dan markup Bootstrap lama agar sesuai Bootstrap 5.
+- Menambahkan guard/fallback untuk beberapa fungsi parent theme atau plugin yang dipakai child theme.
+- Mengelompokkan pengaturan Customizer child theme dalam panel `Velocity Berita4`.
+- Memperbaiki tampilan menu agar item panjang dapat turun ke baris berikutnya.
+
+Cara Pakai
+----------
+
+Pasang atau unggah child theme melalui menu `Appearance > Themes`, lalu aktifkan setelah parent theme `velocity` tersedia dan aktif.
+
+Catatan
+-------
+
+- Child theme ini tetap membutuhkan parent theme `velocity`.
+- Beberapa fitur bergantung pada hook atau fungsi dari parent theme dan plugin Velocity terkait.
+- Output gambar banner dan thumbnail dibuat agar menghindari nama class/id yang sensitif terhadap ad blocker.
