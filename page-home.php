@@ -98,7 +98,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                 $category_link = '#';
                             endif;
                             ?>
-                            <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                            <span><a class="text-white" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
                             <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                         </h6>
 
@@ -119,7 +119,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                             <div class="bg-theme">
                                                 <div class="post_thumbnail"><?php echo do_shortcode('[ratio-thumbnail size="medium" ratio="8:5"]'); ?></div>
                                                 <div class="p-3" style="min-height: 170px;">
-                                                    <h5 class="my-1 fw-bold"><a class="text-dark" href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h5>
+                                                    <h5 class="my-1 fw-bold"><a class="text-white" href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h5>
                                                     <div class="konten"><?php echo vdberita_limit_text(strip_tags(get_the_content()), 25); ?></div>
                                                 </div>
                                             </div>
@@ -147,7 +147,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                                 <div class="flip-card-inner bg-theme">
                                                     <div class="flip-card-front post_thumbnail"><?php echo do_shortcode('[ratio-thumbnail size="medium" ratio="4:3"]'); ?></div>
                                                     <div class="flip-card-back p-2">
-                                                        <h6 class="my-1 fw-bold"><a class="text-dark" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h6>
+                                                        <h6 class="my-1 fw-bold"><a class="text-white" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h6>
                                                     </div>
                                                 </div>
 
@@ -173,7 +173,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                 $category_link = '#';
                             endif;
                             ?>
-                            <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                            <span><a class="text-white" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
                             <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                         </h6>
                         <div class="part-post-home-3 py-2">
@@ -193,7 +193,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                             <div class="left-posthome position-relative">
                                                 <div class="post_thumbnail"><?php echo do_shortcode('[ratio-thumbnail size="medium" ratio="4:3"]'); ?></div>
                                                 <div class="hover-konten bg-theme p-3">
-                                                    <h5 class="my-1 fw-bold"><a class="text-dark" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h5>
+                                                    <h5 class="my-1 fw-bold"><a class="text-white" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h5>
                                                     <div class="konten"><?php echo vdberita_limit_text(strip_tags(get_the_content()), 15); ?></div>
                                                 </div>
                                             </div>
@@ -227,7 +227,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                 $category_link = '#';
                             endif;
                             ?>
-                            <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                            <span><a class="text-white" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
                             <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                         </h6>
                         <div class="part-post-home-4 py-2">
@@ -247,7 +247,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                             <div class="position-relative">
                                                 <div class="post_thumbnail"><?php echo do_shortcode('[ratio-thumbnail size="medium" ratio="8:5"]'); ?></div>
                                                 <div class="bg-theme p-3">
-                                                    <h5 class="my-1 fw-bold"><a class="text-dark" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h5>
+                                                    <h5 class="my-1 fw-bold"><a class="text-white" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h5>
                                                     <div class="konten"><?php echo vdberita_limit_text(strip_tags(get_the_content()), 15); ?></div>
                                                 </div>
                                             </div>
@@ -284,7 +284,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                         $category_link = '#';
                                     endif;
                                     ?>
-                                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                                    <span><a class="text-white" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
                                     <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                                 </h6>
                                 <?php
@@ -307,7 +307,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                                         $category_link = '#';
                                     endif;
                                     ?>
-                                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                                    <span><a class="text-white" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
                                     <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                                 </h6>
                                 <?php
@@ -349,7 +349,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                         $category_link = '#';
                     endif;
                     ?>
-                    <span><a class="text-dark" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
+                    <span><a class="text-white" href="<?php echo $category_link; ?>"><?php echo $category_title; ?></a></span>
                 </h6>
 
                 <?php
@@ -373,7 +373,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                         $category_link = '#';
                     endif;
                     ?>
-                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                    <span><a class="text-white" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
                     <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                 </h6>
                 <?php
@@ -396,7 +396,7 @@ $container = velocitychild_theme_option('justg_container_type', 'container');
                         $category_link = '#';
                     endif;
                     ?>
-                    <span><a class="text-dark" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
+                    <span><a class="text-white" href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_title); ?></a></span>
                     <span><a class="text-white ikon-home" href="<?php echo esc_url($category_link); ?>"><?php echo velocitychild_svg_icon('rss'); ?></a></span>
                 </h6>
                 <?php

@@ -49,7 +49,7 @@ if (!function_exists('module_vdposts')) {
                         <div class="flip-card-inner bg-theme">
                             <div class="flip-card-front post_thumbnail"><?php echo do_shortcode('[ratio-thumbnail size="medium" ratio="1:1"]'); ?></div>
                             <div class="flip-card-back p-2">
-                                <h6 class="my-1 fw-bold"><a class="text-dark" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h6>
+                                <h6 class="my-1 fw-bold"><a class="text-white" href="<?php echo get_the_permalink(); ?>"><?php echo vdlimit_title(get_the_title(), 5); ?></a></h6>
                             </div>
                         </div>
                     </div>

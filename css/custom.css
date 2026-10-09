@@ -72,6 +72,20 @@ textarea {
 
 .bg-theme {
 	background-color: var(--bs-primary) !important;
+	color: #fff;
+}
+
+.bg-theme a:not(.btn) {
+	color: #fff;
+}
+
+.bg-theme h1,
+.bg-theme h2,
+.bg-theme h3,
+.bg-theme h4,
+.bg-theme h5,
+.bg-theme h6 {
+	color: inherit;
 }
 
 .border-theme {
@@ -407,6 +421,11 @@ h6,
 	font-size: 14px;
 	text-transform: uppercase;
 	background-color: var(--bs-primary);
+	color: #fff;
+}
+
+.widget-area .widget-title a {
+	color: #fff;
 }
 
 .wp-calendar-nav {
@@ -608,3 +627,39 @@ h6,
 	}
 }
 
+
+/* arsip & pencarian */
+.velocity-archive .archive-header .page-title {
+	font-size: 1.1rem;
+	line-height: 1.4;
+}
+
+.velocity-archive .archive-header .taxonomy-description p:last-child {
+	margin-bottom: 0;
+}
+
+.velocity-archive .archive-item + .archive-item:not(.archive-item-utama) {
+	border-top: 1px dotted #ccc;
+}
+
+.velocity-archive .archive-item-thumb {
+	width: 220px;
+}
+
+.velocity-archive .archive-item-title {
+	line-height: 1.4;
+}
+
+.velocity-archive .archive-item-title a:hover {
+	text-decoration: underline;
+}
+
+.velocity-archive .archive-item-meta svg {
+	vertical-align: -2px;
+}
+
+@media (max-width: 767.98px) {
+	.velocity-archive .archive-item-thumb {
+		width: 120px;
+	}
+}

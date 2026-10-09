@@ -127,6 +127,17 @@ if (!function_exists('velocitychild_breadcrumb')) {
     }
 }
 
+if (!function_exists('velocitychild_archive_breadcrumb')) {
+    // Breadcrumb arsip & pencarian: justg_breadcrumb induk memakai kategori tulisan pertama di kategori.
+    function velocitychild_archive_breadcrumb($title)
+    {
+        return '<div class="justg-breadcrumbs"><div class="breadcrumbs pb-2"><div class="breadcrumbs-inner">'
+            . '<a href="' . esc_url(home_url('/')) . '">' . esc_html__('Home', 'velocity') . '</a>'
+            . '<span class="separator"> / </span>' . esc_html($title)
+            . '</div></div></div>';
+    }
+}
+
 if (!function_exists('velocitychild_share')) {
     function velocitychild_share()
     {
