@@ -137,6 +137,20 @@ h6,
 	padding-right: 20px;
 }
 
+/* Menu Beranda + banyak kategori: rapatkan supaya tetap satu baris. */
+#primary-menu-desktop:has(> li:nth-child(9)) > li > a {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+@media (max-width: 1199.98px) {
+	#primary-menu-desktop:has(> li:nth-child(8)) > li > a {
+		padding-left: 8px;
+		padding-right: 8px;
+		font-size: 13px;
+	}
+}
+
 #primary-menu > li > a:hover,
 #primary-menu > li > a:focus,
 #primary-menu > .current-menu-item > a,
